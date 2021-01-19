@@ -33,6 +33,7 @@ I decided to use a queue to maintain the last N elements. As queue can do First-
 
 And in the meanwhile, I need to keep track up the current queue size so that after we add one element the queue size becomes bigger than N,then we poll the first element of the queue. Then we calculate the current moving average of the current elements of queue.
 
+Lastly, I create a test class under PaytmLabsSdeChallengeApplicationTests.java to test my code.
 
 •	Time Complexity: O(1), as we are just add element into queue and calculate the moving average without any loop or recursive actions.
 •	Space Complexity: O(N), where N is the size of the moving window.
