@@ -55,4 +55,13 @@ Since the income of the data is unbounded stream and it is time domain sensitive
 
 In summary, I would use spring boot+kafka+spark streaming to develop this application.
 
+### The flow of this application is following the following steps. (Please refer to my design diagram)
+
+1.	The data is coming from different resources and is sent to writeData API. 
+2.	WriteData API will generate a producer to send the user data to the pre-defined topic of Kafka.
+3.	Application will use Spark stream to reading the message from the topic and does a streaming processing and send the result to client to display. (Reason to separate the streaming as an individual layer is because streaming process can be done very quick so that it has less delay) 
+4.	In the meanwhile, the application will send the message of topic to HDFS part 
+4.1 The message from topic will be persisted in HDFS part.
+4.2 The data of HDFS will be exported to another Spark service to do batch processing. (The reason to separate the batching process as a layer is because this process will need the historical data of the user and the analyze action will take much longer than streaming layer. As the result the accuracy will be much higher than streaming layer).
+5. After Batching process finish, the result will send to client to display.
 
