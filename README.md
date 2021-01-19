@@ -24,9 +24,9 @@ We need to provide Google Analytic like services to our customers. Please provid
 5. Have the ability to reprocess historical data in case of bugs in the processing logic.
 
 
-Solutions:
+## Solutions:
 
-##Coding Question
+## Coding Question
 Since the requirement is to keep attract of last N elements and calculate the moving average of the last N elements. 
 
 I decided to use a queue to maintain the last N elements. As queue can do First-In-First-Out. 
